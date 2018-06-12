@@ -67,8 +67,8 @@
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            readIcons(xmlhttp.responseXML.getElementById('MaterialIcons-Regular').children);
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {            
+            readIcons(new DOMParser().parseFromString(xmlhttp.responseText,"text/xml").getElementById('MaterialIcons-Regular').children);
         }
     };
     xmlhttp.open("GET", "https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.svg", true);
